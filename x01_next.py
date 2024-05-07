@@ -10,13 +10,18 @@ Create a funtion that receives 2 input paramters, the curValue and the list Data
 Return the index of the next item to be used
 """
 
-def next(current , myList):
-  '''
-  determine the next item from the list. The list contains False/True Boolean values
-  that indicate whether the current item can be used
-  '''
-  return None
+def next(current, myList):
+  start_index = (current + 1) % len(myList)
+  index = start_index
 
+  while True:
+    if myList[index]:
+        return index
+    index = (index + 1) % len(myList)
+    if index == start_index:
+        break
+
+  return None
 def main():
   data = [False, True, True, False, True, False]
   assert next( 3 , data ) == 4
@@ -33,12 +38,6 @@ def main():
   data = [False, False, False]
   assert next( 1, data ) == None
   
-  
-  
-  
-  
-  
-  
 
-if __name__ == "__main__:
+if __name__ == "__main__":
   main()

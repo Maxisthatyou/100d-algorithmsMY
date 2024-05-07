@@ -6,16 +6,20 @@ Necklace numbers are a number sequence.  You start with 2 digits. The 3rd digit 
 extra: What is the shortest necklace number sequence that can be made?
 """
 
-def necklace(a,b):
-  """
-  inputs: 
-  a : int value [0..9]
-  b : int value [0..9]
-  
-  return
-  str necklace number
-  """
-  return None
+def necklace(a, b):
+    s = ""
+    s += str(a)
+    s += str(b)
+    u = True
+    while u:
+        c = a + b
+        if c < 10:
+            s += str(c)
+        elif c >= 10:
+            s += str(int(str(c)[0]) + int(str(c)[1]))
+            if s[0] == s[-2] and s[1] == s[-1]:
+                return s
+        a, b = int(s[-2]), int(s[-1])
 
 def main():
   assert necklace(9,4) == "94483257314595516742685494"
