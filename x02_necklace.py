@@ -8,15 +8,15 @@ extra: What is the shortest necklace number sequence that can be made?
 
 def necklace(a, b):
     s = ""
-    s += str(a)
-    s += str(b)
+    s = s + str(a)
+    s = s + str(b)
     u = True
     while u:
         c = a + b
         if c < 10:
-            s += str(c)
+            s = s + str(c)
         elif c >= 10:
-            s += str(int(str(c)[0]) + int(str(c)[1]))
+            s = s + str(int(str(c)[0]) + int(str(c)[1]))
             if s[0] == s[-2] and s[1] == s[-1]:
                 return s
         a, b = int(s[-2]), int(s[-1])

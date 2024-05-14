@@ -10,18 +10,19 @@ Create a funtion that receives 2 input paramters, the curValue and the list Data
 Return the index of the next item to be used
 """
 
-def next(current, myList):
-  start_index = (current + 1) % len(myList)
-  index = start_index
+def next(x, data):
+  a = (x + 1) % len(data)
+  position = a
 
   while True:
-    if myList[index]:
-        return index
-    index = (index + 1) % len(myList)
-    if index == start_index:
+    if data[position]:
+        return position
+    position = (position + 1) % len(data)
+    if position == a:
         break
 
   return None
+
 def main():
   data = [False, True, True, False, True, False]
   assert next( 3 , data ) == 4
